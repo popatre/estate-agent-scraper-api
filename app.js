@@ -5,6 +5,8 @@ const karen = require("./karen");
 const karlTatler = require("./karlTatler");
 const app = express();
 
+app.use(cors());
+
 app.get("/", (req, res) => {
     res.status(200).send("Were connected!");
 });

@@ -1,25 +1,15 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-const chromium = require("chrome-aws-lambda");
-const playwright = require("playwright-core");
+// const chromium = require("chrome-aws-lambda");
+// const playwright = require("playwright-core");
 
-//const puppeteer = require('puppeteer')
+const puppeteer = require("puppeteer");
 
 function chrisTins(req, res) {
     const scrapeListings = async (url) => {
-        const browser = await playwright.chromium.launch({
-            args: [...chromium.args, "--font-render-hinting=none"], // This way fix rendering issues with specific fonts
-            executablePath:
-                process.env.NODE_ENV === "production"
-                    ? await chromium.executablePath
-                    : "/usr/local/bin/chromium",
-            headless:
-                process.env.NODE_ENV === "production"
-                    ? chromium.headless
-                    : true,
-        });
-        const context = await browser.newContext();
-        const page = await context.newPage();
+        const browser = await puppeteer.launch();
+        //const context = await browser.newContext();
+        const page = await browser.newPage();
         await page.goto(url);
         //await page.screenshot({path:"tester.png"})
 

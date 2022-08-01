@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const chrisTins = require("./chrisTin");
 const karen = require("./karen");
 const karlTatler = require("./karlTatler");

@@ -39,9 +39,9 @@ function chrisTins(req, res) {
                 formattedResults.push(formattedStr);
             }
         }
-        if (formattedResults.length !== 0) {
-            res.status(200).json({ listings: formattedResults });
-        }
+
+        res.status(200).json({ listings: formattedResults });
+
         await browser.close();
     };
 

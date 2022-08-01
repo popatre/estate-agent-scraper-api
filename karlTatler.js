@@ -4,19 +4,11 @@ const playwright = require("playwright-core");
 
 function karlTatler(req, res) {
     const scrapeListings = async (url) => {
-        const browser = await playwright.chromium.launch({
-            args: [...chromium.args, "--font-render-hinting=none"], // This way fix rendering issues with specific fonts
-            executablePath:
-                process.env.NODE_ENV === "production"
-                    ? await chromium.executablePath
-                    : "/usr/local/bin/chromium",
-            headless:
-                process.env.NODE_ENV === "production"
-                    ? chromium.headless
-                    : true,
+        const browser = await puppeteer.launch({
+            headless: true,
+            args: ["--no-sandbox", "--disable-setuid-sandbox"],
         });
-        const context = await browser.newContext();
-        const page = await context.newPage();
+        const page = await browser.newPage();
         await page.goto(url);
         //await page.screenshot({path:"tester.png"})
 
@@ -29,8 +21,6 @@ function karlTatler(req, res) {
             });
             return listings;
         });
-
-        console.log(grabItem, "*****");
 
         if (grabItem) {
             const formattedResults = [];

@@ -3,6 +3,8 @@
 const chromium = require("chrome-aws-lambda");
 const playwright = require("playwright-core");
 
+//const puppeteer = require('puppeteer')
+
 function chrisTins(req, res) {
     const scrapeListings = async (url) => {
         const browser = await playwright.chromium.launch({
@@ -44,10 +46,9 @@ function chrisTins(req, res) {
 
                 formattedResults.push(formattedStr);
             }
-
-            res.status(200).json({ listings: formattedResults });
         }
         await browser.close();
+        res.status(200).json({ listings: formattedResults });
     };
 
     scrapeListings(

@@ -1,6 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-const chromium = require("chrome-aws-lambda");
-const playwright = require("playwright-core");
+// const chromium = require("chrome-aws-lambda");
+// const playwright = require("playwright-core");
+
+const puppeteer = require("puppeteer");
 
 function karlTatler(req, res) {
     const scrapeListings = async (url) => {

@@ -8,6 +8,7 @@ const puppeteer = require("puppeteer");
 function chrisTins(req, res) {
     const scrapeListings = async (url) => {
         const browser = await puppeteer.launch({
+            headless: true,
             args: ["--no-sandbox", "--disable-setuid-sandbox"],
         });
         //const context = await browser.newContext();

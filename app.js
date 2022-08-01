@@ -4,6 +4,10 @@ const karen = require("./karen");
 const karlTatler = require("./karlTatler");
 const app = express();
 
+app.get("/", (req, res) => {
+    res.status(200).send("Were connected!");
+});
+
 app.get("/api/christins", chrisTins);
 app.get("/api/karen", karen);
 app.get("/api/karltatler", karlTatler);

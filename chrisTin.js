@@ -36,9 +36,8 @@ function chrisTins(req, res) {
             return listings;
         });
 
+        const formattedResults = [];
         if (grabItem) {
-            const formattedResults = [];
-
             for (let i = 0; i < grabItem.length; i += 4) {
                 const formattedStr = `${grabItem[i]} % ${grabItem[i + 1]} % ${
                     grabItem[i + 2]
@@ -47,8 +46,10 @@ function chrisTins(req, res) {
                 formattedResults.push(formattedStr);
             }
         }
+        if (formattedResults.length !== 0) {
+            res.status(200).json({ listings: formattedResults });
+        }
         await browser.close();
-        res.status(200).json({ listings: formattedResults });
     };
 
     scrapeListings(

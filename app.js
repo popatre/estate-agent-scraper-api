@@ -4,12 +4,13 @@ const karen = require("./karen");
 const karlTatler = require("./karlTatler");
 const app = express();
 
-app.set("port", process.env.PORT || 3000);
-
 app.get("/api/christins", chrisTins);
 app.get("/api/karen", karen);
 app.get("/api/karltatler", karlTatler);
 
-app.listen(app.get("port"), () => {
-    console.info(`Server listen on port ${app.get("port")}`);
+const { PORT = 9090 } = process.env;
+
+app.listen(PORT, (err) => {
+    if (err) throw err;
+    console.log(`Listening on ${PORT}...`);
 });

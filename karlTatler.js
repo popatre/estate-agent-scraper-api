@@ -47,7 +47,7 @@ function karlTatler(req, res) {
     };
 
     scrapeListings(
-        "https://www.karltatler.com/merseyside/wirral/sales/tag-house/from-0-bed/from-20000/up-to-130000/most-recent-first"
+        "https://www.karltatler.com/merseyside/wirral/sales/tag-house/from-0-bed/from-20000/up-to-140000/most-recent-first"
     );
 }
 

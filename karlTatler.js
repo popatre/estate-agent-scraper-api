@@ -32,12 +32,14 @@ function karlTatler(req, res) {
 
                 formattedResults.push(formattedStr);
             }
+            console.log(formattedResults, "****");
 
             const filtered = formattedResults.filter((item) => {
                 return (
                     !item.includes("Sold") &&
                     !item.includes("flat") &&
-                    !item.includes("Flat")
+                    !item.includes("Flat") &&
+                    !item.includes("FLAT")
                 );
             });
 

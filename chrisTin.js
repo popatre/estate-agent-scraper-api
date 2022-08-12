@@ -46,7 +46,7 @@ function chrisTins(req, res) {
     };
 
     scrapeListings(
-        "https://www.christinsley.co.uk/merseyside/birkdale/sales/up-to-150000/within-0-25-miles"
+        "https://www.christinsley.co.uk/merseyside/birkdale/sales/up-to-150000/within-2-0-miles/most-recent-first#grid"
     );
 }
 
